@@ -1,0 +1,30 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaListBoxRepro.Views.UserControl1">
+  <Grid RowDefinitions="100,Auto">
+    <TextBox Text="{Binding Text, Mode=TwoWay}"  Grid.Row="0" />
+    
+    <ListBox Grid.Row="1" Items="{Binding Items}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid
+            ColumnDefinitions="Auto,190,Auto"
+            Tapped="GotTapped"
+            Tag="Grid"
+            >
+
+            <Image Grid.Column="0" Source="/Assets/avalonia-logo.ico" Width="32" Height="32" Tag="Image" />
+            <TextBlock Grid.Column="1" Margin="4" Text="{Binding Name}" Tag="Name textbox"/>
+            <Button Grid.Column="2" Tag="Btn">
+              <TextBlock Text="FooBar!" Tag="Text in btn" />
+            </Button>
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+  
+</UserControl>
